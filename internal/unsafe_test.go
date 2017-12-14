@@ -1,4 +1,4 @@
-package utils
+package internal
 
 import (
 	"testing"
@@ -42,7 +42,7 @@ const N = 50000000
 
 func BenchmarkStringToBytesDirect(b *testing.B) {
 	for i := 1; i < N; i++ {
-		_ = []byte("hello world!")
+		_ = String2Bytes("hello world!")
 	}
 }
 
@@ -54,7 +54,7 @@ func BenchmarkStringToBytesUnsafe(b *testing.B) {
 
 func BenchmarkBytesToStringDirect(b *testing.B) {
 	for i := 1; i < N; i++ {
-		_ = string([]byte{'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'})
+		_ = Bytes2String([]byte{'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'})
 	}
 }
 
